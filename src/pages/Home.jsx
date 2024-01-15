@@ -1,8 +1,6 @@
-//Home.jsx
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -10,7 +8,7 @@ const Home = () => {
   const [reviewRequest, setReviewRequest] = useState(false);
   const [user, setUser] = useState(null);
   const cat = useLocation().search;
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const handleAvatarChange = async (event) => {
     const file = event.target.files[0];
@@ -60,12 +58,6 @@ const Home = () => {
 
     fetchData();
   }, [cat, posts]);
-
-  const checkAuthentication = () => {
-    // Implement your authentication logic
-    // For simplicity, always returning true here
-    return true;
-  };
 
   const handleLogout = () => {
     // Implement your logout logic
@@ -119,7 +111,7 @@ const Home = () => {
 
       {avatar && (
         <div className="avatar-preview">
-          <img src={avatar} alt="User Avatar" />
+          <img src={avatar} alt="Avatar Preview" />
         </div>
       )}
 
@@ -129,7 +121,7 @@ const Home = () => {
         {posts.map((post) => (
           <div className="post" key={post.id}>
             <div className="imgs">
-              <img src={`../upload/${post.img}`} alt="Image Broken" />
+              <img src={`../upload/${post.img}`} alt="Post Image" />
             </div>
             <div className="content">
               <Link className="link" to={`/post/${post.id}`}>
