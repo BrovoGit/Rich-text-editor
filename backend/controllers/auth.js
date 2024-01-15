@@ -20,6 +20,7 @@ export const register = async (req, res) => {
       username,
       email,
       password: hashedPassword,
+      avatar: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
     });
 
     res.status(201).json(newUser);

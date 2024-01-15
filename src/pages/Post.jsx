@@ -1,4 +1,4 @@
-//post.js
+//post.jsx
 import React, { useContext, useEffect, useState } from "react";
 import Edit from "../img/edit.png";
 import Delete from "../img/delete.png";

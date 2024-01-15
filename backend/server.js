@@ -37,6 +37,15 @@ const userSchema = new mongoose.Schema({
   avatar: String, // Add an avatar field to store the avatar URL
 });
 
+// await newUser.save();
+
+// res.status(201).json({
+//   message: 'User registered successfully',
+//   username: newUser.username,
+//   email: newUser.email,
+//   avatar: newUser.avatar,
+// });
+
 const User = mongoose.model('User', userSchema);
 
 app.post('/auth/register', upload.single('avatar'), async (req, res) => {
@@ -50,15 +59,15 @@ app.post('/auth/register', upload.single('avatar'), async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // Move the declaration of newUser above the line where it's used
     const newUser = new User({
       username,
       email,
       password: hashedPassword,
-      avatar: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y', // Replace this with a valid default avatar URL
+      avatar: 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
     });
-    
-    
 
+    // Now you can safely use newUser
     await newUser.save();
 
     res.status(201).json({ message: 'User registered successfully' });

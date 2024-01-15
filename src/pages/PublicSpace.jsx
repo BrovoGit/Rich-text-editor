@@ -1,6 +1,6 @@
-//publicspace.js
+//publicspace.jsx
 import React, { useState, useRef, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+//import { Link, useLocation, useNavigate } from "react-router-dom";
 //import { useGestureResponder } from "react-gesture-responder";
 
 const PublicSpace = () => {
@@ -90,6 +90,7 @@ const PublicSpace = () => {
       setIsPlaying(!isPlaying);
     }
   };
+ 
 
   return (
     <div className="public-space">
