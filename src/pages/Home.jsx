@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation,  } from "react-router-dom";
 import axios from "axios";
 
 const Home = () => {
@@ -121,7 +121,7 @@ const Home = () => {
         {posts.map((post) => (
           <div className="post" key={post.id}>
             <div className="imgs">
-              <img src={`../upload/${post.img}`} alt="Post Image" />
+              <img src={`../upload/${post.img}`} alt="Post pic" />
             </div>
             <div className="content">
               <Link className="link" to={`/post/${post.id}`}>
